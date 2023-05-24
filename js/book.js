@@ -9,9 +9,9 @@ class Book {
 
     // Return List Item DOM element representing the book
     render() {
-        const li = document.createElement("li");
-        li.innerText = this.title;
+        const book = document.createElement("li");
+        book.innerText = `"${this.title}" by ${this.author}`;
 
-        return li;
+        return book;
     }
 }

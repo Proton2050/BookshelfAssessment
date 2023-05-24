@@ -6,6 +6,19 @@ class Bookshelf {
         this.visibleBooks = books;
     }
 
+    // Add book to bookself.
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    // Render books array to htmlElement
+    render() {
+        const ul = document.createElement("ul");
+        const books = this.visibleBooks.map((book) => book.render());
+        ul.replaceChildren(...books);
+        this.htmlElement.replaceChildren(ul);
+    }
+
     // Load pre-existing book data.
     seed(data) {
         data.forEach((bookInfo) => {
@@ -21,26 +34,13 @@ class Bookshelf {
         this.render();
     } 
 
-    // Add book to bookself.
-    addBook(book) {
-        this.books.push(book);
-    }
-
-    // Render books array to htmlElement
-    render() {
-        const ul = document.createElement("ul");
-        const books = this.visibleBooks.map((book) => book.render());
-        ul.replaceChildren(...books);
-        this.htmlElement.replaceChildren(ul);
-    }
-
     // Filter visible books according to given criteria.
-    filterVisibleBooks(criteria) {
-        this.visibleBooks = this.books.filter(criteria);
+    filterVisibleBooks(criteriaFn) {
+        this.visibleBooks = this.books.filter(criteriaFn);
         this.render();
     }
 
-    // Sort visible books according to given comparison.
+    // Sort visible books according to given comparison function.
     sortVisibleBooks(compareFn) {
         this.visibleBooks.sort(compareFn);
         this.render();
