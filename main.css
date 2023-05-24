@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+nav {
+    position: relative;
+    display:flex;
+    justify-content:space-between;
+    font-size:x-large;
+    color: darkgoldenrod;
+    background-color:rgb(57, 56, 56);
+    width: 100vw;
+}
+.library-name {
+    padding-left: 20px;
+    align-self: center;
+    font-weight: bold;
+}
+.menu {
+    list-style-type: none;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.menu-link {
+    padding-right: 40px;
+    color: lightslategray;
+    text-decoration: none;
+    font-size: 15px;
+}
+.menu-link:hover {
+      text-decoration: underline;
+}
+.add-book {
+    display: flex;
+    flex-direction: column;
+}
+.search-sort {
+    display: flex;
+    justify-content: space-between;
+}
