@@ -1,10 +1,10 @@
 class Book {
-    constructor(title, author, subject, language, comment) {
+    constructor(title, author, subject, language) {
         this.title = title; //string
         this.author = author; //array
         this.subject = subject; //array
         this.language = language; //string
-        this.comment = comment; //array
+        this.comment = []; //array
     }
 
     // Return List Item DOM element representing the book
@@ -13,20 +13,27 @@ class Book {
         const book = document.createElement("li");
         book.innerText = `"${this.title}" by ${this.author}`;
 
-        // Show comments icon
+        // Show comment icon
         const commentIcon = document.createElement("span");
         commentIcon.className = "material-symbols-outlined";
         commentIcon.innerText = "comment";
 
-        // Comments Viewer 
-        const commentViewer = document.createElement("section");
-        commentViewer.className = "comment-viewer";
-        commentViewer.innerText = "No comments yet.";
-        commentViewer.style.display = "none";
+        // Comment Display 
+        const commentDisplay = document.createElement("section");
+        commentDisplay.className = "comment-viewer";
 
-        // Toggle comments visibility
+        // Create comment list
+        const commentList = document.createElement("ul");
+        this.comment.forEach((comment) => {
+        const commentItem = document.createElement("li");
+        const commentText = document.createTextNode(comment);
+        commentItem.appendChild(commentText);
+        commentList.appendChild(commentItem);
+        commentDisplay.appendChild(commentList);
+        });
+
+        // Toggle comments visibility 
         commentIcon.addEventListener("click", () => {
-            commentViewer.style.display = (commentViewer.style.display === "none") ? "block" : "none";
             commentForm.style.display = (commentForm.style.display === "none") ? "block" : "none";
         });
 
@@ -55,11 +62,12 @@ class Book {
             }
             this.comment.push(commentInput.value);
             commentInput.value = "";
-            console.log(this.comment);
-            // re-render bookshelf?
+            bookshelf.render();
+            commentDisplay.style.display = "block";
+            commentForm.style.display = "block";
         });
 
-        book.append(commentIcon, commentViewer, commentForm);
+        book.append(commentIcon, commentDisplay, commentForm);
 
         return book;
     }
