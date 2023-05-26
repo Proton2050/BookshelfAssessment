@@ -11,12 +11,12 @@ class Book {
     render() {
         // Display book information
         const book = document.createElement("li");
-        book.innerText = `"${this.title}" by ${this.author}`;
+        book.innerText = `"${this.title}" by ${this.author} `;
 
         // Show comment icon
         const commentIcon = document.createElement("span");
         commentIcon.className = "material-symbols-outlined";
-        commentIcon.innerText = "comment";
+        commentIcon.innerText = "add_comment";
 
         // Comment Display 
         const commentDisplay = document.createElement("section");
