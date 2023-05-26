@@ -48,7 +48,7 @@ class Book {
         commentBtn.className = "comment-button";
         commentBtn.setAttribute("type", "button");
         commentBtn.innerText = "Comment";
-        const commentForm = document.createElement("form");
+        const commentForm = document.createElement("div");
         commentForm.className = "comment-form";
         commentForm.append(commentInput, commentBtn);
         commentForm.style.display = "none";

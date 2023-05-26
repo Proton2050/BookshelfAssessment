@@ -15,15 +15,6 @@ searchBtn.addEventListener("click", () => {
     author.toLowerCase().includes(query));
     bookshelf.filterVisibleBooks(searchFn);
 });
-// // Enable enter key to initiate search
-// searchInput.addEventListener("keyup", function(event) {
-//   if (event.keyCode === 13) {
-//     const query = searchInput.value.toLowerCase();
-//     const searchFn = (book) => book.title.toLowerCase().includes(query) || book.author.some((author) =>
-//     author.toLowerCase().includes(query));
-//     bookshelf.filterVisibleBooks(searchFn);
-//   }
-// });
 
 // Reset search filter
 const resetBtn = document.querySelector(".reset");
