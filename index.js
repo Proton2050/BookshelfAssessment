@@ -78,3 +78,11 @@ addBookBtn.addEventListener("click", () => {
     let allInputs = document.querySelectorAll("input");
     allInputs.forEach((input) => input.value = "");
 })
+
+// Add Book visibility toggle
+const revealAddBook = document.querySelector(".reveal-add-book")
+const addBookForm = document.querySelector(".add-book");
+
+revealAddBook.addEventListener("click", () => {
+    addBookForm.style.display = (addBookForm.style.display === "none") ? "flex" : "none";
+});
