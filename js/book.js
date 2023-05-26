@@ -43,7 +43,7 @@ class Book {
         commentInput.className = "comment-input";
         commentInput.setAttribute("type", "text");
         commentInput.setAttribute("maxlength", "280");
-        commentInput.setAttribute("placeholder", "Comment about this book");
+        commentInput.setAttribute("placeholder", "Max of 280 Characters");
         const commentBtn = document.createElement("button");
         commentBtn.className = "comment-button";
         commentBtn.setAttribute("type", "button");
